@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     public AudioSource gunshot;
 
     public float curHealth;
-    public float maxHealth = 100f;
+    public float maxHealth = 300f;
     public Text playerLife;
     public Text KillCount;
 
