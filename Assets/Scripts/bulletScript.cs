@@ -5,24 +5,23 @@ using UnityEngine;
 public class bulletScript : MonoBehaviour {
 
 
-    private PlayerMovement player;
+    private PlayerController player;
 
     public float speed = 20f;
 
     public GameObject splash;
     
-
-    //public GameObject bloodSplash;
     // Use this for initialization
     void Start()
     {
-        player = GameObject.Find("Player").gameObject.GetComponent<PlayerMovement>();
+        player = GameObject.Find("Player").gameObject.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(new Vector3(0, 1, 0) * speed * Time.deltaTime);
+
         Destroy(gameObject, 2.0f);
     }
 
@@ -34,7 +33,9 @@ public class bulletScript : MonoBehaviour {
             Destroy(gameObject);
             
             Instantiate(splash, transform.position, transform.rotation = Quaternion.identity);
+
             Destroy(collision.gameObject);
+
             player.UpdateKillCount();
         }
 
